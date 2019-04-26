@@ -1,0 +1,39 @@
+<div class="color-line"></div>
+<div class="back-link"><a routerLink="/content" class="btn btn-primary">Back to Dashboard</a></div>
+<div class="login-container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center m-b-md"><h3>请&nbsp;&nbsp;登&nbsp;&nbsp;录&nbsp;&nbsp;QD&nbsp;&nbsp;管&nbsp;&nbsp;理&nbsp;&nbsp;员&nbsp;&nbsp;系&nbsp;&nbsp;统</h3>
+        <small>This is the best attendance app ever!</small>
+      </div>
+      <div class="hpanel">
+        <div class="panel-body">
+          <form action="#" id="loginForm">
+            <div class="form-group"><label class="control-label" for="username">账号</label> <input
+              type="text" title="请输入您的账号" required
+              value="" name="username" [(ngModel)]="mana.account" class="form-control"> 
+              <!-- <span
+              class="help-block small">Your unique username to app</span> -->
+            </div>
+            <div class="form-group"><label class="control-label" for="password">密码</label> <input
+              type="password" title="请输入您的密码" required
+              value="" name="password" [(ngModel)]="mana.password" class="form-control"> 
+              <!-- <span
+              class="help-block small">Your strong password</span> -->
+            </div>
+            <!-- <div class="checkbox"><input icheck type="checkbox" ng-model="remember"
+                                         ng-init="remember = true"> Remember login <p
+              class="help-block small">(if this is a private computer)</p></div> -->
+            <button class="btn btn-success btn-block" (click)='login()'>登陆</button>
+            <a class="btn btn-default btn-block" (click)='toRegister()'>注册</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center"><strong>HOMER</strong> - Attendance WebApp <br> 2019 Copyright
+      QD软件有限公司
+    </div>
+  </div>
+</div>
