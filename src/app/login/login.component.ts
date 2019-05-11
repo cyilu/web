@@ -37,7 +37,15 @@ export class LoginComponent implements OnInit {
       success: (data) => {
         console.log(data);
         if(data.message == 1){
-          window.location.href = '#/main/1';
+          window.sessionStorage.setItem('role', data.data.role); 
+          window.sessionStorage.setItem('ref', data.data.ref); 
+          if (data.data.role == 1){
+            window.location.href = '#/main/1';
+          }
+          if (data.data.role == 2)
+            window.location.href = '#/main/2';
+          if (data.data.role == 3)
+            window.location.href = '#/main/3';
         }else{
           Swal.fire({
             //position: 'top-end',

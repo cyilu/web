@@ -1,7 +1,13 @@
 <div class="form-group">
 <div class="row">
   <div class="col-lg-3">
-    <input type="text" [(ngModel)]='condition.name' name="condition" id="condition" class="form-control"> 
+    <input type="text" [(ngModel)]='condition.sno' name="sno" id="sno" class="form-control" placeholder="学号"> 
+  </div>
+  <div class="col-lg-3">
+    <input type="text" [(ngModel)]='condition.name' name="name" id="name" class="form-control" placeholder="姓名"> 
+  </div>
+  <div class="col-lg-3">
+    <input type="text" [(ngModel)]='condition.specialty' name="specialty" id="specialty" class="form-control" placeholder="专业"> 
   </div>
   <div class="col-lg-1">
     <button class="btn btn-success btn-block" (click)="searchManager()" >查询</button>

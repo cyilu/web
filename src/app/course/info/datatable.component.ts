@@ -8,19 +8,9 @@ var domain = window.location.hostname;
 
 @Component({
   selector: 'ng2-table',
-
   templateUrl: './datatable.component.html'
 })
-export class ManagerinfoComponet implements OnInit {
-  
-  // data : LocalDataSource = new LocalDataSource([
-  //     {
-  //       id: 1,
-  //       name: "彭**",
-  //       account: "13892893891",
-  //       state: "禁用",
-  //       creatingTime:"2019-02-15"
-  //     }]);
+export class CourseInfoComponet implements OnInit {
   data:LocalDataSource = new LocalDataSource();
   condition = {
     name:''
@@ -28,31 +18,30 @@ export class ManagerinfoComponet implements OnInit {
 
   constructor(private parent:NavComponent,private route:ActivatedRoute,private router:Router, private http: Http) {
     $.ajax({
-      url: "http://"+domain+":3000/managerInfo",
-      data: {},
+      url: "http://"+domain+":3000/qCourse",
+      data: {
+        ref:window.sessionStorage.getItem('ref')
+      },
       type: "POST",
       dataType: "json",
       async : false, 
       success:  (d) =>  {
-        console.log(this.data);
-        console.log(d);
         this.data.load(d.data);
       }
     });
   }
 
   searchManager(){
+    console.log(window.sessionStorage.getItem('ref'))
     $.ajax({
-      url: "http://"+domain+":3000/managerInfoByName",
+      url: "http://"+domain+":3000/qCourse",
       data: {
-        name:this.condition.name
+        ref:window.sessionStorage.getItem('ref')
       },
       type: "POST",
       dataType: "json",
       async : false, 
-      success: (d) =>  {
-        console.log(this.data);
-        console.log(d);
+      success:  (d) =>  {
         this.data.load(d.data);
       }
     });
@@ -60,7 +49,7 @@ export class ManagerinfoComponet implements OnInit {
 
   ngOnInit() {
     var that = $(this)
-    this.parent.setActiveByPath("managers", this.parent.datatable);
+    this.parent.setActiveByPath("course", this.parent.datatable);
     
   };
   public totalItems: number = 64;
@@ -79,20 +68,20 @@ export class ManagerinfoComponet implements OnInit {
 
   settings = {
     columns: {
-      id: {
-        title: '序号'
+      course_name: {
+        title: '课程名'
       },
-      name: {
-        title: '姓名'
+      class: {
+        title: '地点'
       },
-      account: {
-        title: '用户账号'
+      time: {
+        title: '时间'
       },
-      state: {
-        title: '状态'
+      week: {
+        title: '周数'
       },
-      creatingTime: {
-        title: '创建时间'
+      number: {
+        title: '学生数'
       }
     },
     mode : "inline",

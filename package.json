@@ -22,7 +22,6 @@
     "@angular/platform-browser-dynamic": "^2.3.1",
     "@angular/router": "^3.3.1",
     "@types/jquery": "2.0.34",
-    "angular-tree-component": "^8.3.0",
     "angular2-generic-table": "^1.1.0",
     "bootstrap": "^3.3.7",
     "chart.js": "^2.5.0",

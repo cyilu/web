@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NavComponent} from '../../dashboard/nav.component';
 import {Router, ActivatedRoute, Params} from '@angular/router';
-
+//import { TreeModule } from 'angular-tree-component';
 
 @Component({
   selector: 'app',
@@ -25,7 +25,7 @@ export class DepartmentTreeComponet implements OnInit{
     },
     {
       id: 4,
-      name: 'root2',
+      name: 'root2',    
       children: [
         { id: 5, name: 'child2.1' },
         {

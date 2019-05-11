@@ -23,7 +23,10 @@ export class NavComponent implements OnInit {
   public plugin = "";
   public managerinfo = "";
   public limitation = "";
-  public departmentlist = ""
+  public departmentlist = "";
+  public departmenttree = "";
+  public studentinfo = "";
+  public courseinfo = "";
 
   routers = [];
 
@@ -44,57 +47,119 @@ export class NavComponent implements OnInit {
     this.managerinfo ="/main/"+this.para+"/managerinfo";
     this.limitation = "/main/"+this.para+"/limitation";
     this.departmentlist = "/main/"+this.para+"/departmentlist";
-    this.routers = [
-      {
-        href: 'managers',
-        name: "用户管理",
-        type: true,
-        child: [
-          {href: this.limitation, name: "权限管理"},
-          {href: this.managerinfo, name: "管理员管理"}
-        ]
-      },
-      {
-        href: 'partment',
-        name: "组织机构管理",
-        type: true,
-        child: [
-          {href: this.departmentlist, name: "组织机构列表"}
-        ]
-      },
-      {
-        href: this.dashboard,
-        name: "Dashboard",
-        type: false
-      },
-      {
-        href: 'charts',
-        name: "Charts",
-        type: true,
-        child: [
-          {href: this.lineCharts, name: "Line Charts"},
-          {href: this.pieCharts, name: "Pie Charts"}
-        ]
-      },
-      {
-        href: 'tables',
-        name: "Tables",
-        type: true,
-        child: [
-          {href: this.datatable, name: "Data Tables"}
-        ]
-      },
-      {
-        href: 'bootstrap',
-        name: "Bootstrap",
-        type: true,
-        child: [
-          {href: this.bootstrap, name: "Static Components"},
-          {href: this.plugin, name: "Plugin Components"}
-        ]
-      }
+    this.departmenttree = "/main/"+this.para+"/departmenttree";
+    this.studentinfo ="/main/"+this.para+"/studentinfo";
+    this.courseinfo ="/main/"+this.para+"/courseinfo";
+    if(this.para == '1'){
+      this.routers = [
+        {
+          href: 'managers',
+          name: "用户管理",
+          type: true,
+          child: [
+            {href: this.limitation, name: "权限管理"},
+            {href: this.managerinfo, name: "管理员管理"}
+          ]
+        },
+        {
+          href: 'partment',
+          name: "组织机构管理",
+          type: true,
+          child: [
+            {href: this.departmentlist, name: "组织机构列表"},
+            {href: this.departmenttree, name: "组织机构"}
+          ]
+        },
+        {
+          href: 'student',
+          name: "学生管理",
+          type: true,
+          child: [
+            {href: this.studentinfo, name: "学生信息"}
+          ]
+        }]
+    } else if (this.para == '2'){
+      this.routers = [
+        {
+          href: 'managers',
+          name: "用户管理",
+          type: true,
+          child: [
+            {href: this.limitation, name: "权限管理"},
+            {href: this.managerinfo, name: "管理员管理"}
+          ]
+        }]
+    } else if (this.para == '3'){
+      this.routers = [
+        {
+          href: 'course',
+          name: "课程管理",
+          type: true,
+          child: [
+            {href: this.courseinfo, name: "课程信息"}
+          ]
+        }]
+    }
+    // this.routers = [
+    //   {
+    //     href: 'managers',
+    //     name: "用户管理",
+    //     type: true,
+    //     child: [
+    //       {href: this.limitation, name: "权限管理"},
+    //       {href: this.managerinfo, name: "管理员管理"}
+    //     ]
+    //   },
+    //   {
+    //     href: 'partment',
+    //     name: "组织机构管理",
+    //     type: true,
+    //     child: [
+    //       {href: this.departmentlist, name: "组织机构列表"},
+    //       {href: this.departmenttree, name: "组织机构"}
+    //     ]
+    //   },
+    //   {
+    //     href: 'student',
+    //     name: "学生管理",
+    //     type: true,
+    //     child: [
+    //       {href: this.studentinfo, name: "学生信息"}
+    //     ]
+    //   },
+    //   {
+    //     href: this.dashboard,
+    //     name: "Dashboard",
+    //     type: false
+    //   },
+    //   {
+    //     href: 'charts',
+    //     name: "Charts",
+    //     type: true,
+    //     child: [
+    //       {href: this.lineCharts, name: "Line Charts"},
+    //       {href: this.pieCharts, name: "Pie Charts"}
+    //     ]
+    //   },
+    //   {
+    //     href: 'tables',
+    //     name: "Tables",
+    //     type: true,
+    //     child: [
+    //       {href: this.datatable, name: "Data Tables"}
+    //     ]
+    //   },
+    //   {
+    //     href: 'bootstrap',
+    //     name: "Bootstrap",
+    //     type: true,
+    //     child: [
+    //       {href: this.bootstrap, name: "Static Components"},
+    //       {href: this.plugin, name: "Plugin Components"}
+    //     ]
+    //   }
 
-    ];
+    // ];
 
   };
 

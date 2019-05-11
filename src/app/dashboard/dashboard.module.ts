@@ -19,6 +19,9 @@ import { ManagerinfoComponet } from '../managerinfo/info/datatable.component';
 import { LimitationComponent } from '../managerinfo/limitation/limitation.component';
 import { NewmanagerComponent} from '../managerinfo/newmanager/newmanager.component';
 import { DepartmentListComponet} from '../department/list/list.component';
+import { DepartmentTreeComponet} from '../department/tree/tree.component';
+import { StudentComponet } from '../student/info/datatable.component';
+import { CourseInfoComponet } from '../course/info/datatable.component';
 
 const tablesRoutes: Routes = [
     {
@@ -35,7 +38,10 @@ const tablesRoutes: Routes = [
            { path: 'managerinfo', component:ManagerinfoComponet},
            { path: 'limitation', component:LimitationComponent},
            { path: 'newmanager', component:NewmanagerComponent},
-           { path: 'departmentlist', component:DepartmentListComponet}
+           { path: 'departmentlist', component:DepartmentListComponet},
+           { path: 'departmenttree',  component:DepartmentTreeComponet},
+           { path: 'studentinfo', component:StudentComponet},
+           { path: 'courseinfo', component:CourseInfoComponet}
         ]
     }
 ]
@@ -62,7 +68,9 @@ const tablesRoutes: Routes = [
     ManagerinfoComponet,
     LimitationComponent,
     NewmanagerComponent,
-    DepartmentListComponet
+    DepartmentListComponet,
+    StudentComponet,
+    CourseInfoComponet
   ],
   providers: []
 })
