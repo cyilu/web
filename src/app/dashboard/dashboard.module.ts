@@ -22,6 +22,8 @@ import { DepartmentListComponet} from '../department/list/list.component';
 import { DepartmentTreeComponet} from '../department/tree/tree.component';
 import { StudentComponet } from '../student/info/datatable.component';
 import { CourseInfoComponet } from '../course/info/datatable.component';
+import { CalltheRollInfoComponet } from '../calltheroll/info/datatable.component';
+import { CalltheRollStudentInfoComponet } from '../calltheroll/forstudent/datatable.component';
 
 const tablesRoutes: Routes = [
     {
@@ -41,7 +43,9 @@ const tablesRoutes: Routes = [
            { path: 'departmentlist', component:DepartmentListComponet},
            { path: 'departmenttree',  component:DepartmentTreeComponet},
            { path: 'studentinfo', component:StudentComponet},
-           { path: 'courseinfo', component:CourseInfoComponet}
+           { path: 'courseinfo', component:CourseInfoComponet},
+           { path: 'calltherollinfo', component:CalltheRollInfoComponet},
+           { path: 'calltherollstudentinfo', component:CalltheRollStudentInfoComponet}
         ]
     }
 ]
@@ -70,7 +74,9 @@ const tablesRoutes: Routes = [
     NewmanagerComponent,
     DepartmentListComponet,
     StudentComponet,
-    CourseInfoComponet
+    CourseInfoComponet,
+    CalltheRollInfoComponet,
+    CalltheRollStudentInfoComponet
   ],
   providers: []
 })

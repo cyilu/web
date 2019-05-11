@@ -27,6 +27,8 @@ export class NavComponent implements OnInit {
   public departmenttree = "";
   public studentinfo = "";
   public courseinfo = "";
+  public calltherollinfo = "";
+  public calltherollstudentinfo = "";
 
   routers = [];
 
@@ -50,6 +52,8 @@ export class NavComponent implements OnInit {
     this.departmenttree = "/main/"+this.para+"/departmenttree";
     this.studentinfo ="/main/"+this.para+"/studentinfo";
     this.courseinfo ="/main/"+this.para+"/courseinfo";
+    this.calltherollinfo ="/main/"+this.para+"/calltherollinfo";
+    this.calltherollstudentinfo ="/main/"+this.para+"/calltherollstudentinfo";
     if(this.para == '1'){
       this.routers = [
         {
@@ -81,12 +85,11 @@ export class NavComponent implements OnInit {
     } else if (this.para == '2'){
       this.routers = [
         {
-          href: 'managers',
-          name: "用户管理",
+          href: 'calltherollstudent',
+          name: "点名管理",
           type: true,
           child: [
-            {href: this.limitation, name: "权限管理"},
-            {href: this.managerinfo, name: "管理员管理"}
+            {href: this.calltherollstudentinfo, name: "点名情况"}
           ]
         }]
     } else if (this.para == '3'){
@@ -98,68 +101,17 @@ export class NavComponent implements OnInit {
           child: [
             {href: this.courseinfo, name: "课程信息"}
           ]
-        }]
+        },
+        {
+          href: 'calltheroll',
+          name: "点名管理",
+          type: true,
+          child: [
+            {href: this.calltherollinfo, name: "点名情况"}
+          ]
+        }
+      ]
     }
-    // this.routers = [
-    //   {
-    //     href: 'managers',
-    //     name: "用户管理",
-    //     type: true,
-    //     child: [
-    //       {href: this.limitation, name: "权限管理"},
-    //       {href: this.managerinfo, name: "管理员管理"}
-    //     ]
-    //   },
-    //   {
-    //     href: 'partment',
-    //     name: "组织机构管理",
-    //     type: true,
-    //     child: [
-    //       {href: this.departmentlist, name: "组织机构列表"},
-    //       {href: this.departmenttree, name: "组织机构"}
-    //     ]
-    //   },
-    //   {
-    //     href: 'student',
-    //     name: "学生管理",
-    //     type: true,
-    //     child: [
-    //       {href: this.studentinfo, name: "学生信息"}
-    //     ]
-    //   },
-    //   {
-    //     href: this.dashboard,
-    //     name: "Dashboard",
-    //     type: false
-    //   },
-    //   {
-    //     href: 'charts',
-    //     name: "Charts",
-    //     type: true,
-    //     child: [
-    //       {href: this.lineCharts, name: "Line Charts"},
-    //       {href: this.pieCharts, name: "Pie Charts"}
-    //     ]
-    //   },
-    //   {
-    //     href: 'tables',
-    //     name: "Tables",
-    //     type: true,
-    //     child: [
-    //       {href: this.datatable, name: "Data Tables"}
-    //     ]
-    //   },
-    //   {
-    //     href: 'bootstrap',
-    //     name: "Bootstrap",
-    //     type: true,
-    //     child: [
-    //       {href: this.bootstrap, name: "Static Components"},
-    //       {href: this.plugin, name: "Plugin Components"}
-    //     ]
-    //   }
-
-    // ];
 
   };
 

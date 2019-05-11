@@ -1,0 +1,29 @@
+<div class="form-group">
+<div class="row">
+  <div class="col-lg-3">
+    <input type="text" [(ngModel)]='condition.name' name="condition" id="condition" class="form-control"> 
+  </div>
+  <div class="col-lg-1">
+    <button class="btn btn-success btn-block" (click)="searchManager()" >查询</button>
+  </div>
+  <div class="col-lg-1">
+  <button class="btn btn-default btn-block" href="#">重置</button>
+  </div>
+</div>
+<div class="row">
+  <div style='height:20px'></div>
+</div>
+<div class="row">
+    <div class="col-lg-1">
+      <a class="btn btn-success btn-block" href="/#/main/1/newmanager">新建</a>
+    </div>
+    <div class="col-lg-2">
+    <button class="btn btn-default btn-block" href="#">批量操作</button>
+    </div>
+  </div>
+</div>
+<div class="table-responsive">
+  <ng2-smart-table [settings]="settings"  [source]="data"  (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+</div>
+
+
