@@ -6,38 +6,47 @@ import {NgClass} from '@angular/common';
 import * as $ from 'jquery';
 import Swal from 'sweetalert2'
 var domain = window.location.hostname;
-
 @Component({
   selector: 'ng2-table',
 
-  templateUrl: './newmanager.component.html'
+  templateUrl: './newcourse.component.html'
 })
-export class NewmanagerComponent implements OnInit {
+export class NewcourseComponent implements OnInit {
+
+  con = {
+    courseid:"",
+    name:"",
+    class:"",
+    time:"",
+    week:"",
+    number:""
+
+  }
 
   constructor(private parent:NavComponent,private route:ActivatedRoute,private router:Router, private http: Http) {
     
-  }
-
-  data ={
-    account:"",
-    name:""
   }
   ngOnInit() {
 
   };
 
-  addManager(){
+  add(){
     $.ajax({
-      url: "http://"+domain+":3000/addManager",
+      url: "http://"+domain+":3000/course",
       data: {
-        account:this.data.account,
-        name:this.data.name
+        courseid:this.con.courseid, 
+        class:this.con.class,
+        name:this.con.name,
+        ref:window.sessionStorage.getItem('ref'),
+        time:this.con.time,
+        week:this.con.week,
+        number:this.con.number,
       },
       type: "POST",
       dataType: "json",
       async : false, 
       success: (d) =>  {
-        if(d.message == 1){
+        if(d.data == 1){
           Swal.fire({
             type: 'success',
             text:'添加成功'

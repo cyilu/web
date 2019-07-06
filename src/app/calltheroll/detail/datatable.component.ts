@@ -10,7 +10,7 @@ var domain = window.location.hostname;
   selector: 'ng2-table',
   templateUrl: './datatable.component.html'
 })
-export class CalltheRollInfoComponet implements OnInit {
+export class DetailComponet implements OnInit {
   data:LocalDataSource = new LocalDataSource();
   condition = {
     name:''
@@ -18,12 +18,12 @@ export class CalltheRollInfoComponet implements OnInit {
 
   constructor(private parent:NavComponent,private route:ActivatedRoute,private router:Router, private http: Http) {
     $.ajax({
-      url: "http://"+domain+":3000/qCalltheRoll",
+      url: "http://"+domain+":3000/rolldetail",
       data: {
         ref:window.sessionStorage.getItem('ref'),
-        name:this.condition.name
+        id:window.sessionStorage.getItem('courseid')
       },
-      type: "POST",
+      type: "GET",
       dataType: "json",
       async : false, 
       success:  (d) =>  {
@@ -32,22 +32,22 @@ export class CalltheRollInfoComponet implements OnInit {
     });
   }
 
-  search(){
-    console.log(window.sessionStorage.getItem('ref'))
-    $.ajax({
-      url: "http://"+domain+":3000/qCalltheRoll",
-      data: {
-        ref:window.sessionStorage.getItem('ref'),
-        name:this.condition.name
-      },
-      type: "POST",
-      dataType: "json",
-      async : false, 
-      success:  (d) =>  {
-        this.data.load(d.data);
-      }
-    });
-  }
+  // search(){
+  //   console.log(window.sessionStorage.getItem('ref'))
+  //   $.ajax({
+  //     url: "http://"+domain+":3000/rolldetail",
+  //     data: {
+  //       ref:window.sessionStorage.getItem('ref'),
+  //       name:this.condition.name
+  //     },
+  //     type: "GET",
+  //     dataType: "json",
+  //     async : false, 
+  //     success:  (d) =>  {
+  //       this.data.load(d.data);
+  //     }
+  //   });
+  // }
 
   ngOnInit() {
     var that = $(this)
@@ -70,8 +70,11 @@ export class CalltheRollInfoComponet implements OnInit {
 
   settings = {
     columns: {
-      ID: {
-        title: '课程ID'
+      name:{
+        title:"姓名"
+      },
+      school:{
+        title:"学校"
       },
       coursename: {
         title: '课程名'
@@ -82,30 +85,23 @@ export class CalltheRollInfoComponet implements OnInit {
       callposition: {
         title: '点名地点'
       },
-      prenumber: {
-        title: '应到人数'
-      },
-      realnumber: {
-        title: '实到人数'
+      dname: {
+        title: '点名状态'
       }
     },
     mode : "inline",
-    delete:{
-      confirmDelete : true,
-      deleteButtonContent:'Detail'
-    },
     actions:{
       edit:false,
+      delete:false,
       add:false
     }
   };
 
   onDeleteConfirm(event): void {
-    console.log(event);
-    window.sessionStorage.setItem('courseid', event.data.autoid);
-    event.confirm.resolve();
-    window.location.href="/#/main/3/rolldetail";
-    
+    // console.log(event.data.id);
+    // window.sessionStorage.setItem('courseid', event.data.id);
+    // window.location.href="/#/main/3/rolldetail";
+    // event.confirm.resolve();
     // console.log("delete function");
     // if (window.confirm('Are you sure you want to delete?')) {
     //   event.confirm.resolve();

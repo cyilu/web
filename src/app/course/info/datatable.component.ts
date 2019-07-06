@@ -20,7 +20,8 @@ export class CourseInfoComponet implements OnInit {
     $.ajax({
       url: "http://"+domain+":3000/qCourse",
       data: {
-        ref:window.sessionStorage.getItem('ref')
+        ref:window.sessionStorage.getItem('ref'),
+        name:this.condition.name
       },
       type: "POST",
       dataType: "json",
@@ -31,12 +32,13 @@ export class CourseInfoComponet implements OnInit {
     });
   }
 
-  searchManager(){
+  search(){
     console.log(window.sessionStorage.getItem('ref'))
     $.ajax({
       url: "http://"+domain+":3000/qCourse",
       data: {
-        ref:window.sessionStorage.getItem('ref')
+        ref:window.sessionStorage.getItem('ref'),
+        name:this.condition.name
       },
       type: "POST",
       dataType: "json",
@@ -68,6 +70,9 @@ export class CourseInfoComponet implements OnInit {
 
   settings = {
     columns: {
+      courseid:{
+        title:'课程号'
+      },
       course_name: {
         title: '课程名'
       },
@@ -87,104 +92,23 @@ export class CourseInfoComponet implements OnInit {
     mode : "inline",
     delete:{
       confirmDelete : true
+    },
+    add:{
+      addButtonContent:"search"
     }
+    // },
+    // actions:{
+    //   add:false
+    // }
   };
 
-  // data = [
-  //   {
-  //     id: 1,
-  //     name: "彭**",
-  //     account: "13892893891",
-  //     state: "禁用",
-  //     creatingTime:"2019-02-15"
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "钟**",
-  //     account: "18392382391",
-  //     state: "激活",
-  //     creatingTime:"2019-02-15"
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "小二",
-  //     account: "12391029301",
-  //     state: "禁用",
-  //     creatingTime:"2019-02-15"
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "小四",
-  //     account: "12391029301",
-  //     state: "激活",
-  //     creatingTime:"2019-02-15"
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "小五",
-  //     account: "12391029301",
-  //     state: "禁用",
-  //     creatingTime:"2019-02-15"
-  //   },
-  //   {
-  //     id: 6,
-  //     name: "小六",
-  //     account: "12391029301",
-  //     state: "禁用",
-  //     creatingTime:"2019-02-15"
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "小七",
-  //     account: "12391029301",
-  //     state: "禁用",
-  //     creatingTime:"2019-02-15"
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "小七",
-  //     account: "12391029301",
-  //     state: "禁用",
-  //     creatingTime:"2019-02-15"
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "小七",
-  //     account: "12391029301",
-  //     state: "禁用",
-  //     creatingTime:"2019-02-15"
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "小七",
-  //     account: "12391029301",
-  //     state: "禁用",
-  //     creatingTime:"2019-02-15"
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "小七",
-  //     account: "12391029301",
-  //     state: "禁用",
-  //     creatingTime:"2019-02-15"
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "小七",
-  //     account: "12391029301",
-  //     state: "禁用",
-  //     creatingTime:"2019-02-15"
-  //   }
-
-  // ];
-
   onDeleteConfirm(event): void {
-    console.log("delete function");
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+    // console.log("delete function");
+    // if (window.confirm('Are you sure you want to delete?')) {
+    //   event.confirm.resolve();
+    // } else {
+    //   event.confirm.reject();
+    // }
   }
   
 }

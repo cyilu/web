@@ -17,10 +17,12 @@ export class CalltheRollStudentInfoComponet implements OnInit {
   }
 
   constructor(private parent:NavComponent,private route:ActivatedRoute,private router:Router, private http: Http) {
+    console.log(this.condition.name)
     $.ajax({
       url: "http://"+domain+":3000/qCalltheRollStudent",
       data: {
-        ref:window.sessionStorage.getItem('ref')
+        ref:window.sessionStorage.getItem('ref'),
+        name:this.condition.name
       },
       type: "POST",
       dataType: "json",
@@ -31,12 +33,13 @@ export class CalltheRollStudentInfoComponet implements OnInit {
     });
   }
 
-  searchManager(){
+  search(){
     console.log(window.sessionStorage.getItem('ref'))
     $.ajax({
       url: "http://"+domain+":3000/qCalltheRollStudent",
       data: {
-        ref:window.sessionStorage.getItem('ref')
+        ref:window.sessionStorage.getItem('ref'),
+        name:this.condition.name
       },
       type: "POST",
       dataType: "json",
@@ -83,17 +86,24 @@ export class CalltheRollStudentInfoComponet implements OnInit {
     },
     mode : "inline",
     delete:{
-      confirmDelete : true
+      confirmDelete : false
+    },
+    add:{
+      addButtonContent:"search"
+    },
+    actions:{
+      edit:false,
+      delete:false
     }
   };
 
   onDeleteConfirm(event): void {
-    console.log("delete function");
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+    // console.log("delete function");
+    // if (window.confirm('Are you sure you want to delete?')) {
+    //   event.confirm.resolve();
+    // } else {
+    //   event.confirm.reject();
+    // }
   }
   
 }

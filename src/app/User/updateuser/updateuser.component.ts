@@ -10,39 +10,36 @@ var domain = window.location.hostname;
 @Component({
   selector: 'ng2-table',
 
-  templateUrl: './newmanager.component.html'
+  templateUrl: './updateuser.component.html'
 })
-export class NewmanagerComponent implements OnInit {
+export class UpdateserComponent implements OnInit {
+
+  user={
+    account:"",
+    email:"",
+    password:"",
+    role:""
+  }
 
   constructor(private parent:NavComponent,private route:ActivatedRoute,private router:Router, private http: Http) {
     
   }
 
-  data ={
-    account:"",
-    name:""
-  }
-  ngOnInit() {
-
-  };
-
-  addManager(){
+  updateUser(){
+    
     $.ajax({
-      url: "http://"+domain+":3000/addManager",
-      data: {
-        account:this.data.account,
-        name:this.data.name
-      },
-      type: "POST",
+      url: "http://"+domain+":3000/user",
+      data: this.user,
+      type: "PUT",
       dataType: "json",
       async : false, 
-      success: (d) =>  {
-        if(d.message == 1){
+      success:  (d) =>  {
+        if(d.data == 1){
           Swal.fire({
             type: 'success',
             text:'添加成功'
           });
-          //window.location.href="/#/main/1/userinfo";
+          window.location.href="/#/main/1/userinfo";
         }else{
           Swal.fire({
             type: 'error',
@@ -51,5 +48,8 @@ export class NewmanagerComponent implements OnInit {
         }
       }
     });
+    // window.location.href="/#/main/1/userinfo";
   }
+  ngOnInit() {
+  };
 }

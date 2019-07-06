@@ -29,6 +29,8 @@ export class NavComponent implements OnInit {
   public courseinfo = "";
   public calltherollinfo = "";
   public calltherollstudentinfo = "";
+  public userinfo="";
+  public dicinfo="";
 
   routers = [];
 
@@ -54,6 +56,9 @@ export class NavComponent implements OnInit {
     this.courseinfo ="/main/"+this.para+"/courseinfo";
     this.calltherollinfo ="/main/"+this.para+"/calltherollinfo";
     this.calltherollstudentinfo ="/main/"+this.para+"/calltherollstudentinfo";
+    this.userinfo ="/main/"+this.para+"/userinfo";
+    this.dicinfo = "/main/"+this.para+"/dicinfo"
+
     if(this.para == '1'){
       this.routers = [
         {
@@ -61,8 +66,9 @@ export class NavComponent implements OnInit {
           name: "用户管理",
           type: true,
           child: [
-            {href: this.limitation, name: "权限管理"},
-            {href: this.managerinfo, name: "管理员管理"}
+            //{href: this.managerinfo, name: "管理员管理"},
+            {href: this.userinfo, name:"用户管理"}//,     
+            //{href: this.studentinfo, name: "学生管理"}
           ]
         },
         {
@@ -70,16 +76,15 @@ export class NavComponent implements OnInit {
           name: "组织机构管理",
           type: true,
           child: [
-            {href: this.departmentlist, name: "组织机构列表"},
-            {href: this.departmenttree, name: "组织机构"}
+            {href: this.departmentlist, name: "组织机构列表"}
           ]
         },
         {
-          href: 'student',
-          name: "学生管理",
+          href: 'dictionary',
+          name: "字典管理",
           type: true,
           child: [
-            {href: this.studentinfo, name: "学生信息"}
+            {href: this.dicinfo , name: "字典管理"}
           ]
         }]
     } else if (this.para == '2'){

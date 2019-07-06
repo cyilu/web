@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(){
-    console.log("Start ngOnInit "+domain);
+    console.log("Start ngOnInit domain 222222"+domain);
   };
 
 

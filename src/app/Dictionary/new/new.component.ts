@@ -10,39 +10,44 @@ var domain = window.location.hostname;
 @Component({
   selector: 'ng2-table',
 
-  templateUrl: './newmanager.component.html'
+  templateUrl: './new.component.html'
 })
-export class NewmanagerComponent implements OnInit {
+export class NewdicComponent implements OnInit {
+
+  dic={
+    code:"",
+    name:"",
+    value:"",
+    class:"",
+    description:""
+  }
+//   d={
+//   datas:[
+//     {value:1, key:"管理员"},
+//     {value:2, key:"学生"},
+//     {value:3, key:"教师"}
+//   ]
+// }
 
   constructor(private parent:NavComponent,private route:ActivatedRoute,private router:Router, private http: Http) {
     
   }
 
-  data ={
-    account:"",
-    name:""
-  }
-  ngOnInit() {
-
-  };
-
-  addManager(){
+  addUser(){
+    console.log(this.dic)
     $.ajax({
-      url: "http://"+domain+":3000/addManager",
-      data: {
-        account:this.data.account,
-        name:this.data.name
-      },
+      url: "http://"+domain+":3000/dic",
+      data: this.dic,
       type: "POST",
       dataType: "json",
       async : false, 
-      success: (d) =>  {
-        if(d.message == 1){
+      success:  (d) =>  {
+        if(d.data == 1){
           Swal.fire({
             type: 'success',
             text:'添加成功'
           });
-          //window.location.href="/#/main/1/userinfo";
+          window.location.href="/#/main/1/dicinfo";
         }else{
           Swal.fire({
             type: 'error',
@@ -51,5 +56,8 @@ export class NewmanagerComponent implements OnInit {
         }
       }
     });
+    // window.location.href="/#/main/1/userinfo";
   }
+  ngOnInit() {
+  };
 }

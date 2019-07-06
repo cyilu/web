@@ -7,7 +7,6 @@ import { PaginationModule } from 'ng2-bootstrap';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { FileUploadModule } from 'ng2-file-upload';
 
-
 import { NavComponent } from './nav.component';
 import { DashboardComponent } from './dashboard.component';
 import { lineChartsComponent } from '../charts/lineCharts/lineCharts.component';
@@ -24,7 +23,13 @@ import { StudentComponet } from '../student/info/datatable.component';
 import { CourseInfoComponet } from '../course/info/datatable.component';
 import { CalltheRollInfoComponet } from '../calltheroll/info/datatable.component';
 import { CalltheRollStudentInfoComponet } from '../calltheroll/forstudent/datatable.component';
-
+import { UserComponet } from '../User/info/datatable.component';
+import { NewuserComponent } from '../User/newuser/newuser.component';
+import { NewcourseComponent } from '../course/newcourse/newcourse.component';
+import { DicComponet } from '../Dictionary/info/datatable.component';
+import { NewdicComponent } from '../Dictionary/new/new.component';
+import { DetailComponet } from '../calltheroll/detail/datatable.component';
+import { from } from 'rxjs/observable/from';
 const tablesRoutes: Routes = [
     {
         path:'main/:id',
@@ -45,7 +50,13 @@ const tablesRoutes: Routes = [
            { path: 'studentinfo', component:StudentComponet},
            { path: 'courseinfo', component:CourseInfoComponet},
            { path: 'calltherollinfo', component:CalltheRollInfoComponet},
-           { path: 'calltherollstudentinfo', component:CalltheRollStudentInfoComponet}
+           { path: 'calltherollstudentinfo', component:CalltheRollStudentInfoComponet},
+           { path: 'userinfo', component:UserComponet},
+           { path: 'newuser', component:NewuserComponent},
+           { path: 'newcourse', component:NewcourseComponent},
+           { path: 'dicinfo', component:DicComponet},
+           { path: 'newdic', component:NewdicComponent},
+           { path: 'rolldetail', component:DetailComponet}
         ]
     }
 ]
@@ -76,7 +87,13 @@ const tablesRoutes: Routes = [
     StudentComponet,
     CourseInfoComponet,
     CalltheRollInfoComponet,
-    CalltheRollStudentInfoComponet
+    CalltheRollStudentInfoComponet,
+    UserComponet,
+    NewuserComponent,
+    NewcourseComponent,
+    DicComponet,
+    NewdicComponent,
+    DetailComponet
   ],
   providers: []
 })

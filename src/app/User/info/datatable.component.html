@@ -1,35 +1,35 @@
 <div class="form-group">
-<div class="row">
+<!-- <div class="row">
   <div class="col-lg-3">
-    <input type="text" [(ngModel)]='condition.sno' name="sno" id="sno" class="form-control" placeholder="学号"> 
-  </div>
-  <div class="col-lg-3">
+    <input type="text" [(ngModel)]='condition.account' name="account" id="account" class="form-control" placeholder="请输入账号"> 
+  </div> -->
+  <!-- <div class="col-lg-3">
     <input type="text" [(ngModel)]='condition.name' name="name" id="name" class="form-control" placeholder="姓名"> 
   </div>
   <div class="col-lg-3">
     <input type="text" [(ngModel)]='condition.specialty' name="specialty" id="specialty" class="form-control" placeholder="专业"> 
-  </div>
-  <div class="col-lg-1">
+  </div> -->
+  <!-- <div class="col-lg-1">
     <button class="btn btn-success btn-block" (click)="searchManager()" >查询</button>
-  </div>
+  </div> -->
   <!-- <div class="col-lg-1">
   <button class="btn btn-default btn-block" href="#">重置</button>
   </div> -->
-</div>
+<!-- </div> -->
 <div class="row">
   <div style='height:20px'></div>
 </div>
-<!-- <div class="row">
+<div class="row">
     <div class="col-lg-1">
-      <a class="btn btn-success btn-block" href="#">新建</a>
+      <a class="btn btn-success btn-block" href="/#/main/1/newuser">新建</a>
     </div>
-    <div class="col-lg-2">
+    <!-- <div class="col-lg-2">
     <button class="btn btn-default btn-block" href="#">批量操作</button>
-    </div>
-  </div> -->
+    </div> -->
+  </div>
 </div>
 <div class="table-responsive">
-  <ng2-smart-table [settings]="settings"  [source]="data"  (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+  <ng2-smart-table [settings]="settings"  [source]="data"  (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onEditConfirm($event)"></ng2-smart-table>
 </div>
 
 

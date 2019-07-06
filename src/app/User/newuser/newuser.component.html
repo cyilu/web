@@ -1,0 +1,39 @@
+<form action="#" id="loginForm">
+    <div class="form-group"><label class="control-label" for="account">用户名</label> <input
+        type="text" placeholder="请输入" title="Please enter you username" required
+        [(ngModel)]='user.account' value="" name="account" id="account" class="form-control"> 
+    </div>
+    <div class="form-group"><label class="control-label" for="email">手机号</label> <input
+        type="text" placeholder="请输入" required
+        [(ngModel)]='user.email' value="" name="email" id="email" class="form-control"> 
+    </div>
+    <div class="form-group"><label class="control-label" for="name">姓名</label> <input
+        type="text" placeholder="请输入" required
+        [(ngModel)]='user.name' value="" name="name" id="name" class="form-control"> 
+    </div>
+    <div class="form-group"><label class="control-label" for="school">学校</label> <input
+        type="text" placeholder="请输入" required
+        [(ngModel)]='user.school' value="" name="school" id="school" class="form-control"> 
+    </div>
+    <div class="form-group"><label class="control-label" for="password">密码</label> <input
+        type="password" placeholder="请输入" required
+        [(ngModel)]='user.password' value="" name="password" id="password" class="form-control"> 
+    </div>
+    <!-- <div class="form-group"> 
+        <label class="control-label" for="role">角色</label>
+        <select [(ngModel)]='user.role'>
+            <option value="">请点击选择</option>
+            <option value="1">管理员</option>
+            <option value="2">学生</option>
+            <option value="3">教师</option>
+             <option *ngFor="let item of d.datas" [value]='item.value'>{{item.key}}</option> 
+        </select>
+    </div> -->
+    <div class="form-group"><label class="control-label" for="role">角色</label> <input
+        type="text" placeholder="管理员 1 学生 2 教师 3" required
+        [(ngModel)]='user.role' value="" name="role" id="role" class="form-control"> 
+    </div>
+    <button class="btn btn-success btn-block" (click)="addUser()">提交</button>
+</form>
+
+

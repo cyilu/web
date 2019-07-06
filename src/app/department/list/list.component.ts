@@ -67,6 +67,9 @@ export class DepartmentListComponet implements OnInit {
     mode : "inline",
     delete:{
       confirmDelete : true
+    },
+    actions:{
+      add:false
     }
   };
 

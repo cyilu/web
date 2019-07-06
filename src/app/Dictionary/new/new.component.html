@@ -1,0 +1,39 @@
+<form action="#" id="loginForm">
+    <div class="form-group"><label class="control-label" for="code">字典编号</label> <input
+        type="text" placeholder="请输入" title="Please enter you username" required
+        [(ngModel)]='dic.code' value="" name="code" id="code" class="form-control"> 
+    </div>
+    <div class="form-group"><label class="control-label" for="name">字典名称</label> <input
+        type="text" placeholder="请输入" required
+        [(ngModel)]='dic.name' value="" name="name" id="name" class="form-control"> 
+    </div>
+    <div class="form-group"><label class="control-label" for="value">字典值</label> <input
+        type="text" placeholder="请输入" required
+        [(ngModel)]='dic.value' value="" name="value" id="value" class="form-control"> 
+    </div>
+    <div class="form-group"><label class="control-label" for="class">字典类别</label> <input
+        type="text" placeholder="请输入" required
+        [(ngModel)]='dic.class' value="" name="class" id="class" class="form-control"> 
+    </div>
+    <div class="form-group"><label class="control-label" for="description">字典描述</label> <input
+        type="text" placeholder="请输入" required
+        [(ngModel)]='dic.description' value="" name="description" id="description" class="form-control"> 
+    </div>
+    <!-- <div class="form-group"> 
+        <label class="control-label" for="role">角色</label>
+        <select [(ngModel)]='user.role'>
+            <option value="">请点击选择</option>
+            <option value="1">管理员</option>
+            <option value="2">学生</option>
+            <option value="3">教师</option>
+             <option *ngFor="let item of d.datas" [value]='item.value'>{{item.key}}</option> 
+        </select>
+    </div> -->
+    <!-- <div class="form-group"><label class="control-label" for="role">角色</label> <input
+        type="text" placeholder="管理员 1 学生 2 教师 3" required
+        [(ngModel)]='user.role' value="" name="role" id="role" class="form-control"> 
+    </div> -->
+    <button class="btn btn-success btn-block" (click)="addUser()">提交</button>
+</form>
+
+
